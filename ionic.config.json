@@ -1,0 +1,7 @@
+{
+  "name": "angular-video-player-starter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
