@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+    path: 'embedded',
+    loadChildren: () => import('./embedded/embedded.module').then( m => m.EmbeddedPageModule)
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

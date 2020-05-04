@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">angular-video-player-starter</string>
+    <string name="title_activity_main">angular-video-player-starter</string>
+    <string name="package_name">com.jeep.app.ioniccapacitorvideoplayer</string>
+    <string name="custom_url_scheme">com.jeep.app.ioniccapacitorvideoplayer</string>
+</resources>
