@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import * as CapacitorVPPlugin from 'capacitor-video-player';
+import * as WebVPPlugin from 'capacitor-video-player';
 
 const { CapacitorVideoPlayer, Device } = Plugins;
 const videoFrom:string = "http";
@@ -15,39 +14,60 @@ const videoFrom:string = "http";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  platform:boolean;
+export class HomePage  implements OnInit {
+  public bPlatform: boolean = false;
+  public aPlatform: boolean = true;
   private _videoPlayer: any;
-  private _url: string;
+  private _url: string = null;
+  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4";
+  //private _hls: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8";
+  private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
+  //private _hls: string = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+  //private _hls: string = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8";
+
   constructor() {
 
   }
-  async ngAfterViewInit() {
+  async ngOnInit() {
     const info = await Device.getInfo();
     if (info.platform === "ios" || info.platform === "android") {
       this._videoPlayer = CapacitorVideoPlayer;
       if (info.platform === "ios") {
-        this._url = "public/assets/video/video.mp4"
+        this._url = "public/assets/video/video.mp4";
       } else {
-        this._url ="raw/video"
+        this._url ="raw/video";
+        this.aPlatform = false;
       }
-      this.platform = false;
+      this.bPlatform = false;
     } else {
-      this.platform = true;
-      this._videoPlayer = CapacitorVPPlugin.CapacitorVideoPlayer;
+      this.bPlatform = true;
+      this._videoPlayer = WebVPPlugin.CapacitorVideoPlayer;
       this._url = "assets/video/video.mp4";
     }
-    if (videoFrom === "http") {
-      this._url = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4";
-    }
   }
-  async testPlugin(){ 
-    const info = await Device.getInfo();     
-    document.addEventListener('jeepCapVideoPlayerPlay', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPlay ', e.detail)}, false);
-    document.addEventListener('jeepCapVideoPlayerPause', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPause ', e.detail)}, false);
-    document.addEventListener('jeepCapVideoPlayerEnded', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerEnded ', e.detail)}, false);
-    const res:any  = await this._videoPlayer.initPlayer({mode:"fullscreen",url:this._url});
+  async testVideoPlayerPlugin(vType:string) {
+    if (videoFrom === "http") {
+      if(vType === "mp4") {
+        this._url = this._mp4;
+      } else if (vType === "hls") {
+        this._url = this._hls;
+      } else {
+        console.log("Video format not supported");
+      }
+    }
+    if(this._url != null) {
+      document.addEventListener('jeepCapVideoPlayerPlay', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPlay ', e.detail);}, false);
+      document.addEventListener('jeepCapVideoPlayerPause', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPause ', e.detail);}, false);
+      document.addEventListener('jeepCapVideoPlayerEnded', (e:CustomEvent) => {
+         console.log('Event jeepCapVideoPlayerEnded ', e.detail);
+        }, false);
+      document.addEventListener('jeepCapVideoPlayerExit', (e:CustomEvent) => { 
+        console.log('Event jeepCapVideoPlayerExit ', e.detail)
+      }, false);
+      const res:any  = await this._videoPlayer.initPlayer({mode:"fullscreen",url:this._url,playerId:"fullscreen",componentTag:"app-home"});
+      if(!res.result) console.log("Error in setting the videoPlayer");
+    }
+
   }
 }
-// "https://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
 // "http://www.youtube.com/embed/W7qWa52k-nE" does not work

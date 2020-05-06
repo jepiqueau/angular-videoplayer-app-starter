@@ -1,16 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Ionic/Angular Video Player Tests
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-    <ion-button (click)="testPlugin()" color='primary' size="large">Test Fullscreen Video</ion-button>
-    <ion-button *ngIf="platform" [href]="'./embedded'" routerDirection="forward" color='primary' size="large">Test Embedded Videos</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('mp4')" color='primary' expand="block">Test Fullscreen MP4 Video</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('hls')" color='primary' expand="block">Test Fullscreen HLS Video</ion-button>
+    <ion-button *ngIf="bPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Test Embedded Videos</ion-button>
+    <div id="fullscreen">
+    </div>      
   </div>
 </ion-content>

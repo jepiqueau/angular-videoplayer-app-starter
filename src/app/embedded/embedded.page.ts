@@ -43,6 +43,7 @@ export class EmbeddedPage {
         document.addEventListener('jeepCapVideoPlayerPlay', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPlay ', e.detail)}, false);
         document.addEventListener('jeepCapVideoPlayerPause', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerPause ', e.detail)}, false);
         document.addEventListener('jeepCapVideoPlayerEnded', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerEnded ', e.detail)}, false);
+        document.addEventListener('jeepCapVideoPlayerExit', (e:CustomEvent) => { console.log('Event jeepCapVideoPlayerExit ', e.detail)}, false);
      
         this.itemId = getVideoNames(this.videoList);
         const listEl:HTMLIonListElement = document.querySelector("#videos-list");
@@ -56,7 +57,7 @@ export class EmbeddedPage {
             listEl.appendChild(itemEl);
             const res:any  = await this._videoPlayer.initPlayer(
                 {mode:"embedded",url:this.videoList[i],
-                playerId:this.itemId[i],width:480,height:270
+                playerId:this.itemId[i],componentTag:"app-embedded",width:480,height:270
             });
             this._results = [...this._results,res];
         }
