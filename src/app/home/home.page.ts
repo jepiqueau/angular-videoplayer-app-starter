@@ -16,15 +16,17 @@ const videoFrom:string = "http";
 })
 export class HomePage  implements OnInit {
   public bPlatform: boolean = false;
-  public aPlatform: boolean = true;
+  public aPlatform: boolean = false;
   private _videoPlayer: any;
   private _url: string = null;
   private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4";
   //private _hls: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8";
-  private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
-  //private _hls: string = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
-  //private _hls: string = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8";
-
+  //private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
+  private _hls: string = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+  //private _mpd: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/manifestBR.mpd";
+  private _mpd: string = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
+  private _smooth : string ="https://test.playready.microsoft.com/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/manifest";
+  private _webm: string = "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm";
   constructor() {
 
   }
@@ -36,7 +38,7 @@ export class HomePage  implements OnInit {
         this._url = "public/assets/video/video.mp4";
       } else {
         this._url ="raw/video";
-        this.aPlatform = false;
+        this.aPlatform = true;
       }
       this.bPlatform = false;
     } else {
@@ -49,8 +51,17 @@ export class HomePage  implements OnInit {
     if (videoFrom === "http") {
       if(vType === "mp4") {
         this._url = this._mp4;
+      } else if (vType === "webm") {
+        this._url = this._webm;
       } else if (vType === "hls") {
         this._url = this._hls;
+      } else if (vType === "mpd") {
+        this._url = this._mpd;
+      } else if (vType === "smooth") {
+        this._url = this._smooth;
+/*      } else if (vType === "ytube") {
+        this._url = this._ytube;
+*/
       } else {
         console.log("Video format not supported");
       }
