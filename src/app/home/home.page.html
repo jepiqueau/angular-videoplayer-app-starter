@@ -9,6 +9,7 @@
 <ion-content>
   <div class="ion-padding">
     <ion-button (click)="testVideoPlayerPlugin('mp4')" color='primary' expand="block">Test Fullscreen MP4 Video</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('aws')" color='primary' expand="block">Test Fullscreen Video from AWS S3</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('webm')" color='primary' expand="block">Test Fullscreen WEBM Video</ion-button>
     <ion-button (click)="testVideoPlayerPlugin('hls')" color='primary' expand="block">Test Fullscreen HLS Video</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('mpd')" color='primary' expand="block">Test Fullscreen DASH MPD Video</ion-button>

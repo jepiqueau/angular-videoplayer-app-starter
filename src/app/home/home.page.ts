@@ -27,6 +27,7 @@ export class HomePage  implements OnInit {
   private _mpd: string = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
   private _smooth : string ="https://test.playready.microsoft.com/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/manifest";
   private _webm: string = "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm";
+  private _aws: string = "https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e";
   constructor() {
 
   }
@@ -59,6 +60,8 @@ export class HomePage  implements OnInit {
         this._url = this._mpd;
       } else if (vType === "smooth") {
         this._url = this._smooth;
+      } else if (vType === "aws") {
+        this._url = this._aws;
 /*      } else if (vType === "ytube") {
         this._url = this._ytube;
 */

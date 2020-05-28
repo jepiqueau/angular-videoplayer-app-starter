@@ -1,6 +1,6 @@
 {
   "name": "angular-video-player-starter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,14 +24,14 @@
     "@ionic-native/splash-screen": "latest",
     "@ionic-native/status-bar": "latest",
     "@ionic/angular": "latest",
-    "capacitor-video-player": "^2.0.1",
+    "capacitor-video-player": "^2.1.0-3",
     "core-js": "^3.6.4",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "latest",
+    "@angular-devkit/build-angular": "^0.901.7",
     "@angular/cli": "latest",
     "@angular/compiler": "latest",
     "@angular/compiler-cli": "latest",
@@ -49,7 +49,7 @@
     "karma-coverage-istanbul-reporter": "latest",
     "karma-jasmine": "latest",
     "karma-jasmine-html-reporter": "latest",
-    "protractor": "latest",
+    "protractor": "^7.0.0",
     "ts-node": "^8.7.0",
     "tslint": "~5.15.0",
     "typescript": "~3.7.5"
