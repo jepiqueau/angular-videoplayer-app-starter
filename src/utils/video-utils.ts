@@ -43,3 +43,23 @@ export const getAssetsVideoPathes = (type: string ,videoList: Array<string>): Ar
     }
     return assetList;
 }
+export const videoList : Array<any> = [
+    { 
+        urlPath: "https://raw.githubusercontent.com/jepiqueau/jeep/master/assets/videos/Bike720.mp4",
+        imgPath: "https://raw.githubusercontent.com/jepiqueau/jeep/master/assets/images/Bike.jpg",
+        title: "Bike",
+        content: `This is a racing bike video\nLorem ipsum dolor sit amet, consectetur adipiscing elit.`
+    },
+    {
+        urlPath: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
+        imgPath: "https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217",
+        title: "BigBuckBunny",
+        content: `This is a Big Buck Bunny video\nPellentesque commodo sapien nec quam scelerisque, ac finibus augue tempus.\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut diam lacus. Nunc at malesuada dui.\nEtiam efficitur porttitor ultricies. Cras sapien ligula, convallis in laoreet at, venenatis in ante. Cras sagittis metus id est finibus, eget ultricies nunc eleifend. Aenean at velit mollis, porta lacus ut, dapibus tellus. Aliquam laoreet lacus vel tellus scelerisque, molestie sagittis sapien malesuada.`
+    },
+    {
+        urlPath: "https://raw.githubusercontent.com/jepiqueau/jeep/master/assets/videos/Waterfall720.mp4",
+        imgPath: "https://raw.githubusercontent.com/jepiqueau/jeep/master/assets/images/Waterfall.jpg",
+        title: "Waterfall",
+        content: `This is a Watyerfall Video\nMorbi ut diam lacus. Nunc at malesuada dui. Fusce eros quam, tincidunt ac leo ut, volutpat hendrerit lacus. Curabitur a scelerisque ligula.`
+    }
+]

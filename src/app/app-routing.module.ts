@@ -15,6 +15,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'fullscreen',
+    loadChildren: () => import('./fullscreen/fullscreen.module').then( m => m.FullscreenPageModule)
+  },
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@
 
 <ion-content>
   <div class="ion-padding">
+    <ion-button (click)="setApi()" color='primary' expand="block">Test Api On/Off</ion-button>
     <ion-button (click)="testVideoPlayerPlugin('mp4')" color='primary' expand="block">Test Fullscreen MP4 Video</ion-button>
     <ion-button (click)="testVideoPlayerPlugin('aws')" color='primary' expand="block">Test Fullscreen Video from AWS S3</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('webm')" color='primary' expand="block">Test Fullscreen WEBM Video</ion-button>
@@ -15,8 +16,6 @@
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('mpd')" color='primary' expand="block">Test Fullscreen DASH MPD Video</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('smooth')" color='primary' expand="block">Test Fullscreen ISM Video</ion-button>
 <!--    <ion-button (click)="testVideoPlayerPlugin('ytube')" color='primary' expand="block">Test Fullscreen YouTube Video</ion-button> -->
-    <ion-button *ngIf="bPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Test Embedded Videos</ion-button>
-    <div id="fullscreen">
-    </div>      
+    <ion-button *ngIf="wPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Test Embedded Videos</ion-button>
   </div>
 </ion-content>
