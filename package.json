@@ -1,6 +1,6 @@
 {
   "name": "angular-video-player-starter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,9 +17,9 @@
     "@angular/platform-browser": "latest",
     "@angular/platform-browser-dynamic": "latest",
     "@angular/router": "latest",
-    "@capacitor/android": "^2.0.2",
-    "@capacitor/core": "2.0.2",
-    "@capacitor/ios": "^2.0.2",
+    "@capacitor/android": "^2.3.0",
+    "@capacitor/core": "^2.3.0",
+    "@capacitor/ios": "^2.3.0",
     "@ionic-native/core": "latest",
     "@ionic-native/splash-screen": "latest",
     "@ionic-native/status-bar": "latest",
@@ -36,7 +36,7 @@
     "@angular/compiler": "latest",
     "@angular/compiler-cli": "latest",
     "@angular/language-service": "latest",
-    "@capacitor/cli": "2.0.2",
+    "@capacitor/cli": "^2.3.0",
     "@ionic/angular-toolkit": "latest",
     "@types/jasmine": "latest",
     "@types/jasminewd2": "latest",
@@ -52,7 +52,7 @@
     "protractor": "^7.0.0",
     "ts-node": "^8.7.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.7.5"
+    "typescript": "^3.9.2"
   },
   "repository": {
     "type": "git",
