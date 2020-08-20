@@ -73,6 +73,7 @@ export class FullscreenPage implements OnInit {
       clearTimeout(this._apiTimer1);
     } 
     await this._videoPlayer.stopAllPlayers();
+
     // Remove all the plugin listeners
     this._handlerPlay.remove();
     this._handlerPause.remove();

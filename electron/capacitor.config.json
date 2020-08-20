@@ -1,0 +1,8 @@
+{
+  "appId": "com.jeep.app.ioniccapacitorvideoplayer",
+  "appName": "angular-video-player-starter",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

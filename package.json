@@ -1,6 +1,6 @@
 {
   "name": "angular-video-player-starter",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,20 +24,19 @@
     "@ionic-native/splash-screen": "latest",
     "@ionic-native/status-bar": "latest",
     "@ionic/angular": "latest",
-    "capacitor-video-player": "^2.1.0",
-    "core-js": "^3.6.4",
+    "capacitor-video-player": "^2.3.0-beta.4",
     "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.901.7",
+    "@angular-devkit/build-angular": "latest",
     "@angular/cli": "latest",
     "@angular/compiler": "latest",
     "@angular/compiler-cli": "latest",
     "@angular/language-service": "latest",
     "@capacitor/cli": "^2.3.0",
-    "@ionic/angular-toolkit": "latest",
+    "@ionic/angular-toolkit": "^2.3.1",
     "@types/jasmine": "latest",
     "@types/jasminewd2": "latest",
     "@types/node": "~8.9.4",
@@ -49,10 +48,10 @@
     "karma-coverage-istanbul-reporter": "latest",
     "karma-jasmine": "latest",
     "karma-jasmine-html-reporter": "latest",
-    "protractor": "^7.0.0",
+    "protractor": "latest",
     "ts-node": "^8.7.0",
-    "tslint": "~5.15.0",
-    "typescript": "^3.9.2"
+    "tslint": "~6.1.2",
+    "typescript": "^3.9.6"
   },
   "repository": {
     "type": "git",

@@ -18,7 +18,7 @@ export class HomePage  implements OnInit {
   private _url: string = null;
 
 
-  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4";
+  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51";
   //private _hls: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8";
   //private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
   private _hls: string = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
@@ -65,6 +65,8 @@ export class HomePage  implements OnInit {
 /*      } else if (vType === "ytube") {
       this._url = this._ytube;
 */
+    } else if (vType === 'internal') {
+      this._url = "internal";
     } else {
       console.log("Video format not supported");
     }
