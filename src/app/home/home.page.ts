@@ -27,6 +27,8 @@ export class HomePage  implements OnInit {
   private _smooth : string ="https://test.playready.microsoft.com/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/manifest";
   private _webm: string = "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm";
   private _aws: string = "https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e";
+  //private _ytube: string = "https://www.youtube.com/watch?v=sw6Mg81YMg0";
+  private _appFile: string = "application/files/bigbuckbunny.mp4";
   private _testApi: boolean = false;
 
   constructor(public modalCtrl: ModalController) {
@@ -62,9 +64,11 @@ export class HomePage  implements OnInit {
       this._url = this._smooth;
     } else if (vType === "aws") {
       this._url = this._aws;
-/*      } else if (vType === "ytube") {
+/*    } else if (vType === "ytube") {
       this._url = this._ytube;
 */
+    } else if (vType === 'application') {
+      this._url = this._appFile;
     } else if (vType === 'internal') {
       this._url = "internal";
     } else {

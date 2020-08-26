@@ -3,7 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 import * as WebVPPlugin from 'capacitor-video-player';
 
-const { CapacitorVideoPlayer } = Plugins;
+const { CapacitorVideoPlayer, Toast } = Plugins;
 const videoFrom:string = "http";
 /*  comment line above and uncomment line below
     to use videos from assets
@@ -57,6 +57,13 @@ export class FullscreenPage implements OnInit {
     if(this._url != null) {
       if(this._testApi) this._first = true;
       const res:any  = await this._videoPlayer.initPlayer({mode:"fullscreen",url:this._url,playerId:"fullscreen",componentTag:"app-fullscreen"});
+      if(!res.result && (this.platform === "ios" || this.platform === "android")) {
+        await Toast.show({
+          text: res.message,
+          duration: 'long',
+          position: 'bottom'
+        });        
+      }
       console.log("res.result ",res.result) ;     
       if(!res.result) console.log("res.message",res.message);
     }
@@ -79,7 +86,6 @@ export class FullscreenPage implements OnInit {
     this._handlerPause.remove();
     this._handlerEnded.remove();
     this._handlerReady.remove();
-    this._handlerPlaying.remove();
     this._handlerExit.remove();
     // Dismiss the modal view
     this.modalCtrl.dismiss({
@@ -167,11 +173,6 @@ export class FullscreenPage implements OnInit {
 
         }, 7000);
       }
-    }, false);
-    this._handlerPlaying = this._videoPlayer.addListener('jeepCapVideoPlayerPlaying', async (data:any) => { 
-      console.log('Event jeepCapVideoPlayerPlaying ', data)
-      if(this._testApi) {
-      } 
     }, false);
 
   }

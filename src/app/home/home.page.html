@@ -18,6 +18,7 @@
 <!--    <ion-button (click)="testVideoPlayerPlugin('ytube')" color='primary' expand="block">Test Fullscreen YouTube Video</ion-button> -->
     <ion-button *ngIf="wPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Test Embedded Videos</ion-button>
     <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('internal')" color='primary' expand="block">Test Fullscreen Internal Video</ion-button>
+    <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('application')" color='primary' expand="block">Test Fullscreen Application Video</ion-button>
 
   </div>
 </ion-content>
