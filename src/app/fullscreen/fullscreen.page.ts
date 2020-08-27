@@ -41,16 +41,18 @@ export class FullscreenPage implements OnInit {
     this._testApi = this.testApi ? this.testApi : false;
     if (this.platform === "ios" || this.platform === "android") {
       this._videoPlayer = CapacitorVideoPlayer;
-      if (this.platform === "ios") {
+/*      if (this.platform === "ios") {
         this._url = "public/assets/video/video.mp4";
       } else {
         this._url ="raw/video";
       }
+*/
     } else {
       this._videoPlayer = WebVPPlugin.CapacitorVideoPlayer;
-      this._url = "assets/video/video.mp4";
+//      this._url = "assets/video/video.mp4";
     }
-    if (videoFrom === "http") this._url = this.url;
+//    if (videoFrom === "http") this._url = this.url;
+    this._url = this.url
     this._addListenersToPlayerPlugin();
   }
   async ionViewDidEnter() {

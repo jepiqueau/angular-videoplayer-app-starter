@@ -29,6 +29,9 @@ export class HomePage  implements OnInit {
   private _aws: string = "https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e";
   //private _ytube: string = "https://www.youtube.com/watch?v=sw6Mg81YMg0";
   private _appFile: string = "application/files/bigbuckbunny.mp4";
+  private _assetIos: string = "public/assets/video/video.mp4";
+  private _assetAndroid: string = "public/assets/video/video.mp4";
+  private _assetWeb: string = "assets/video/video.mp4";
   private _testApi: boolean = false;
 
   constructor(public modalCtrl: ModalController) {
@@ -45,6 +48,8 @@ export class HomePage  implements OnInit {
       this.wPlatform = false;
     } else {
       this.wPlatform = true;
+      this.iPlatform = false;
+      this.aPlatform = false;
     }
   }
   setApi() {
@@ -71,6 +76,12 @@ export class HomePage  implements OnInit {
       this._url = this._appFile;
     } else if (vType === 'internal') {
       this._url = "internal";
+    } else if (vType === 'asset' && this.iPlatform) {
+      this._url = this._assetIos;
+    } else if (vType === 'asset' && this.aPlatform) {
+      this._url = this._assetAndroid;
+    } else if (vType === 'asset' && this.wPlatform) {
+      this._url = this._assetWeb;
     } else {
       console.log("Video format not supported");
     }
