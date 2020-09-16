@@ -5,10 +5,6 @@ import * as WebVPPlugin from 'capacitor-video-player';
 
 const { CapacitorVideoPlayer, Toast } = Plugins;
 const videoFrom:string = "http";
-/*  comment line above and uncomment line below
-    to use videos from assets
-*/
-//const videoFrom:string = "assets";
 
 @Component({
   selector: 'app-fullscreen',
@@ -41,17 +37,9 @@ export class FullscreenPage implements OnInit {
     this._testApi = this.testApi ? this.testApi : false;
     if (this.platform === "ios" || this.platform === "android") {
       this._videoPlayer = CapacitorVideoPlayer;
-/*      if (this.platform === "ios") {
-        this._url = "public/assets/video/video.mp4";
-      } else {
-        this._url ="raw/video";
-      }
-*/
     } else {
       this._videoPlayer = WebVPPlugin.CapacitorVideoPlayer;
-//      this._url = "assets/video/video.mp4";
     }
-//    if (videoFrom === "http") this._url = this.url;
     this._url = this.url
     this._addListenersToPlayerPlugin();
   }
@@ -59,6 +47,7 @@ export class FullscreenPage implements OnInit {
     if(this._url != null) {
       if(this._testApi) this._first = true;
       const res:any  = await this._videoPlayer.initPlayer({mode:"fullscreen",url:this._url,playerId:"fullscreen",componentTag:"app-fullscreen"});
+      console.log("res " + JSON.stringify(res));
       if(!res.result && (this.platform === "ios" || this.platform === "android")) {
         await Toast.show({
           text: res.message,
