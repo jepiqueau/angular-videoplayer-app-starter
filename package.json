@@ -1,7 +1,8 @@
 {
   "name": "angular-videoplayer-app-starter",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "scripts": {
+    "update": "npm install --save capacitor-video-player@latest",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -52,7 +53,7 @@
     "protractor": "latest",
     "ts-node": "latest",
     "tslint": "latest",
-    "typescript": "^4.0.5"
+    "typescript": "~4.0.5"
   },
   "repository": {
     "type": "git",
