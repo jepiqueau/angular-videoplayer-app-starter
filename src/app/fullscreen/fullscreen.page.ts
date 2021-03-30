@@ -13,6 +13,8 @@ const videoFrom:string = "http";
 })
 export class FullscreenPage implements OnInit {
   @Input() url: string;
+  @Input() sturl: string;
+  @Input() stlang: string;
   @Input() testApi: boolean;
   @Input() platform: string;
 
@@ -25,6 +27,8 @@ export class FullscreenPage implements OnInit {
   private _handlerExit: any;
   private _first: boolean = false;
   private _url: string = null;
+  private _sturl: string = null;
+  private _stlang: string = null;
   private _apiTimer1: any;
   private _apiTimer2: any;
   private _apiTimer3: any;
@@ -40,13 +44,17 @@ export class FullscreenPage implements OnInit {
     } else {
       this._videoPlayer = WebVPPlugin.CapacitorVideoPlayer;
     }
-    this._url = this.url
     this._addListenersToPlayerPlugin();
   }
   async ionViewDidEnter() {
+    this._url = this.url;
+    this._sturl = this.sturl;
+    this._stlang = this.stlang;
     if(this._url != null) {
       if(this._testApi) this._first = true;
-      const res:any  = await this._videoPlayer.initPlayer({mode:"fullscreen",url:this._url,playerId:"fullscreen",componentTag:"app-fullscreen"});
+      const res:any  = await this._videoPlayer.initPlayer({mode: "fullscreen",url: this._url, subtitle: this._sturl,
+                                                          language: this._stlang, playerId: "fullscreen",
+                                                          componentTag:"app-fullscreen"});
       console.log("res " + JSON.stringify(res));
       if(!res.result && (this.platform === "ios" || this.platform === "android")) {
         await Toast.show({

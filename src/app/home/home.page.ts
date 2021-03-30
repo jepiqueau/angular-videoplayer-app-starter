@@ -16,9 +16,16 @@ export class HomePage  implements OnInit {
   public iPlatform: boolean = false;
   private _info: DeviceInfo = null;
   private _url: string = null;
+  private _sturl: string = null;
+  private _stlang: string = null;
 
-
-  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51";
+//  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51";
+//  private _mp4st: string = null;
+  /* Video with subtitles in spanish*/
+  private _mp4: string = "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2.mp4";
+  private _mp4st: string = "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2-subtitles-pt-BR.vtt";
+  private _mp4stLang: string = "es";
+  /* end video with subtitle */
   //private _hls: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8";
   //private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
   private _hls: string = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
@@ -28,10 +35,21 @@ export class HomePage  implements OnInit {
   private _webm: string = "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm";
   private _aws: string = "https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e";
   //private _ytube: string = "https://www.youtube.com/watch?v=sw6Mg81YMg0";
-  private _appFile: string = "application/files/bigbuckbunny.mp4";
-  private _assetIos: string = "public/assets/video/video.mp4";
-  private _assetAndroid: string = "public/assets/video/video.mp4";
-  private _assetWeb: string = "assets/video/video.mp4";
+  //private _appFile: string = "application/files/bigbuckbunny.mp4";
+  private _appFile: string = "application/files/jellies.mp4";
+  private _appSTFile: string = "application/files/jellies.srt";
+
+//  private _assetIos: string = "public/assets/video/video.mp4";
+//  private _assetAndroid: string = "public/assets/video/video.mp4";
+//  private _assetWeb: string = "assets/video/video.mp4";
+  private _assetIos: string = "public/assets/video/jellies.mp4";
+  private _assetAndroid: string = "public/assets/video/jellies.mp4";
+  private _assetWeb: string = "assets/video/jellies.mp4";
+  private _assetSTIos: string = "public/assets/video/jellies.srt";
+  private _assetSTAndroid: string = "public/assets/video/jellies.srt";
+  private _assetSTWeb: string = "assets/video/jellies.srt";
+  private _assetSTLang: string = "en";
+
   private _testApi: boolean = false;
 
   constructor(public modalCtrl: ModalController) {
@@ -85,10 +103,35 @@ export class HomePage  implements OnInit {
     } else {
       console.log("Video format not supported");
     }
+    if(this._url === "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2.mp4") {
+      this._sturl = this._mp4st;
+      this._stlang = this._mp4stLang 
+    } else if (this._url === "application/files/jellies.mp4") {
+      this._sturl = this._appSTFile;
+      this._stlang = "en";
+    } else if( this._url.includes("assets") && this._url.includes("jellies")) {
+      if(this.iPlatform) {
+        this._sturl = this._assetSTIos;
+      } else if (this.aPlatform) {
+        this._sturl = this._assetSTAndroid;
+      } else if (this.aPlatform) {
+        this._sturl = this._assetSTWeb;
+      }
+      this._stlang = this._assetSTLang 
+
+    } else {
+      this._sturl = null;
+      this._stlang = null;
+    }
+    console.log(`>>> this._url ${this._url}`);
+    console.log(`>>> this._sturl ${this._sturl}`);
+    console.log(`>>> this._stlang ${this._stlang}`);
     const modal = await this.modalCtrl.create({
       component: FullscreenPage,
       componentProps: {
         'url': this._url,
+        'sturl': this._sturl,
+        'stlang': this._stlang,
         'testApi': this._testApi,
         'platform': this._info.platform
       },
