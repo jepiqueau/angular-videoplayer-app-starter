@@ -18,6 +18,7 @@ export class HomePage  implements OnInit {
   private _url: string = null;
   private _sturl: string = null;
   private _stlang: string = null;
+  private _stoptions: any = null;
 
 //  private _mp4: string = "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51";
 //  private _mp4st: string = null;
@@ -25,6 +26,7 @@ export class HomePage  implements OnInit {
   private _mp4: string = "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2.mp4";
   private _mp4st: string = "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2-subtitles-pt-BR.vtt";
   private _mp4stLang: string = "es";
+  private _mp4stOptions: any = {backgroundColor:"rgba(0,0,0,0)", fontSize: 18, foregroundColor:"rgba(128,128,0,1)"}
   /* end video with subtitle */
   //private _hls: string = "https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8";
   //private _hls: string = "https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8";
@@ -38,6 +40,7 @@ export class HomePage  implements OnInit {
   //private _appFile: string = "application/files/bigbuckbunny.mp4";
   private _appFile: string = "application/files/jellies.mp4";
   private _appSTFile: string = "application/files/jellies.srt";
+  private _appSTFileIos: string = "application/files/jellies.vtt";
 
 //  private _assetIos: string = "public/assets/video/video.mp4";
 //  private _assetAndroid: string = "public/assets/video/video.mp4";
@@ -45,10 +48,11 @@ export class HomePage  implements OnInit {
   private _assetIos: string = "public/assets/video/jellies.mp4";
   private _assetAndroid: string = "public/assets/video/jellies.mp4";
   private _assetWeb: string = "assets/video/jellies.mp4";
-  private _assetSTIos: string = "public/assets/video/jellies.srt";
+  private _assetSTIos: string = "public/assets/video/jellies.vtt";
   private _assetSTAndroid: string = "public/assets/video/jellies.srt";
   private _assetSTWeb: string = "assets/video/jellies.srt";
   private _assetSTLang: string = "en";
+  private _assetSTOptions: any = {backgroundColor:"rgba(0,0,0,0)", fontSize: 18, foregroundColor:"rgba(255,0,0,1)"}
 
   private _testApi: boolean = false;
 
@@ -106,32 +110,41 @@ export class HomePage  implements OnInit {
     if(this._url === "https://brenopolanski.github.io/html5-video-webvtt-example/MIB2.mp4") {
       this._sturl = this._mp4st;
       this._stlang = this._mp4stLang 
+      this._stoptions = this._mp4stOptions;
     } else if (this._url === "application/files/jellies.mp4") {
-      this._sturl = this._appSTFile;
+      if(this.iPlatform) {
+        this._sturl = this._appSTFileIos;
+      } else {
+        this._sturl = this._appSTFile;
+      }
       this._stlang = "en";
     } else if( this._url.includes("assets") && this._url.includes("jellies")) {
       if(this.iPlatform) {
         this._sturl = this._assetSTIos;
       } else if (this.aPlatform) {
         this._sturl = this._assetSTAndroid;
-      } else if (this.aPlatform) {
+      } else if (this.wPlatform) {
         this._sturl = this._assetSTWeb;
       }
-      this._stlang = this._assetSTLang 
+      this._stlang = this._assetSTLang; 
+      this._stoptions = this._assetSTOptions;
 
     } else {
       this._sturl = null;
       this._stlang = null;
+      this._stoptions = null;
     }
     console.log(`>>> this._url ${this._url}`);
     console.log(`>>> this._sturl ${this._sturl}`);
     console.log(`>>> this._stlang ${this._stlang}`);
+    console.log(`>>> this._stoptions ${JSON.stringify(this._stoptions)}`);
     const modal = await this.modalCtrl.create({
       component: FullscreenPage,
       componentProps: {
         'url': this._url,
         'sturl': this._sturl,
         'stlang': this._stlang,
+        'stoptions': this._stoptions,
         'testApi': this._testApi,
         'platform': this._info.platform
       },
