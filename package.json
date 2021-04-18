@@ -1,6 +1,6 @@
 {
   "name": "angular-videoplayer-app-starter",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "scripts": {
     "update": "npm install --save capacitor-video-player@latest",
     "ng": "ng",
