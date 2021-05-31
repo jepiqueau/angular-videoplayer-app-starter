@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'embedded',
-    loadChildren: () => import('./embedded/embedded.module').then( m => m.EmbeddedPageModule)
-  },
-  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
@@ -19,6 +15,11 @@ const routes: Routes = [
     path: 'fullscreen',
     loadChildren: () => import('./fullscreen/fullscreen.module').then( m => m.FullscreenPageModule)
   },
+  {
+    path: 'embedded',
+    loadChildren: () => import('./embedded/embedded.module').then( m => m.EmbeddedPageModule)
+  },
+
 ];
 
 @NgModule({
