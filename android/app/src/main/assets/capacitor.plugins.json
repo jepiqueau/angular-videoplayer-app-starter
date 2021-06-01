@@ -1,0 +1,10 @@
+[
+	{
+		"pkg": "@capacitor/toast",
+		"classpath": "com.capacitorjs.plugins.toast.ToastPlugin"
+	},
+	{
+		"pkg": "capacitor-video-player",
+		"classpath": "com.jeep.plugin.capacitor.capacitorvideoplayer.CapacitorVideoPlayerPlugin"
+	}
+]
