@@ -9,17 +9,19 @@
 <ion-content>
   <div class="ion-padding">
     <ion-button (click)="setApi()" color='primary' expand="block">Test Api On/Off</ion-button>
-    <ion-button (click)="testVideoPlayerPlugin('mp4')" color='primary' expand="block">Test Fullscreen MP4 Video</ion-button>
-    <ion-button (click)="testVideoPlayerPlugin('aws')" color='primary' expand="block">Test Fullscreen Video from AWS S3</ion-button>
-    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('webm')" color='primary' expand="block">Test Fullscreen WEBM Video</ion-button>
-    <ion-button (click)="testVideoPlayerPlugin('hls')" color='primary' expand="block">Test Fullscreen HLS Video</ion-button>
-    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('mpd')" color='primary' expand="block">Test Fullscreen DASH MPD Video</ion-button>
-    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('smooth')" color='primary' expand="block">Test Fullscreen ISM Video</ion-button>
-<!--    <ion-button (click)="testVideoPlayerPlugin('ytube')" color='primary' expand="block">Test Fullscreen YouTube Video</ion-button> -->
-    <ion-button *ngIf="wPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Test Embedded Videos</ion-button>
-    <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('internal')" color='primary' expand="block">Test Fullscreen Internal Video</ion-button>
-    <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('application')" color='primary' expand="block">Test Fullscreen Application Video</ion-button>
-    <ion-button (click)="testVideoPlayerPlugin('asset')" color='primary' expand="block">Test Fullscreen Asset Video</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('mp4')" color='primary' expand="block">Fullscreen MP4 Video</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('aws')" color='primary' expand="block">Fullscreen Video from AWS S3</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('webm')" color='primary' expand="block">Fullscreen WEBM Video</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('hls')" color='primary' expand="block">Fullscreen HLS Video</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('mpd')" color='primary' expand="block">Fullscreen DASH MPD Video</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('smooth')" color='primary' expand="block">Fullscreen ISM Video</ion-button>
+<!--    <ion-button (click)="testVideoPlayerPlugin('ytube')" color='primary' expand="block">Fullscreen YouTube Video</ion-button> -->
+    <ion-button *ngIf="wPlatform" [href]="'./embedded'" routerDirection="forward" color='primary' expand="block">Embedded Videos</ion-button>
+    <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('internal')" color='primary' expand="block">Fullscreen Internal Video</ion-button>
+    <ion-button *ngIf="!wPlatform" (click)="testVideoPlayerPlugin('application')" color='primary' expand="block">Fullscreen Application Video</ion-button>
+    <ion-button (click)="testVideoPlayerPlugin('asset')" color='primary' expand="block">Fullscreen Asset Video</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('dcim')" color='primary' expand="block">Fullscreen DCIM Video</ion-button>
+    <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('extSdCard')" color='primary' expand="block">Fullscreen extSdCard DCIM Video</ion-button>
 
   </div>
 </ion-content>

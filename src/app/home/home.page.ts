@@ -37,9 +37,9 @@ export class HomePage implements OnInit {
   private aws = 'https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e';
   //private ytube = 'https://www.youtube.com/watch?v=sw6Mg81YMg0';
   //private appFile = 'application/files/bigbuckbunny.mp4';
-  private appFile = 'application/files/jellies.mp4';
-  private appSTFile = 'application/files/jellies.srt';
-  private appSTFileIos = 'application/files/jellies.vtt';
+  private appFile = 'application/files/OTHER/FOLDERS/jellies.mp4';
+  private appSTFile = 'application/files/OTHER/FOLDERS/jellies.srt';
+  private appSTFileIos = 'application/files/OTHER/FOLDERS/jellies.vtt';
 
 //  private assetIos = 'public/assets/video/video.mp4';
 //  private assetAndroid = 'public/assets/video/video.mp4';
@@ -52,7 +52,8 @@ export class HomePage implements OnInit {
   private assetSTWeb = 'assets/video/jellies.srt';
   private assetSTLang = 'en';
   private assetSTOptions: any = {backgroundColor:'rgba(0,0,0,0)', fontSize: 18, foregroundColor:'rgba(255,0,0,1)'};
-
+  private dcim = 'file:///sdcard/DCIM/Camera/video.mp4';
+  private extSdCard = 'file:///storage/extSdCard/DCIM/Camera/jellies.mp4';
   private testApi = false;
 
   constructor(public modalCtrl: ModalController) {}
@@ -109,6 +110,10 @@ export class HomePage implements OnInit {
       this.url = this.assetAndroid;
     } else if (vType === 'asset' && this.wPlatform) {
       this.url = this.assetWeb;
+    } else if (vType === 'dcim' && this.aPlatform) {
+      this.url = this.dcim;
+    } else if (vType === 'extSdCard' && this.aPlatform) {
+      this.url = this.extSdCard;
     } else {
       console.log('Video format not supported');
     }
@@ -116,7 +121,7 @@ export class HomePage implements OnInit {
       this.sturl = this.mp4st;
       this.stlang = this.mp4stLang ;
       this.stoptions = this.mp4stOptions;
-    } else if (this.url === 'application/files/jellies.mp4') {
+    } else if (this.url.substring(0,17) === 'application/files') {
       if(this.iPlatform) {
         this.sturl = this.appSTFileIos;
       } else {

@@ -77,7 +77,9 @@ export class FullscreenPage implements OnInit {
       clearTimeout(this.apiTimer2);
       clearTimeout(this.apiTimer1);
     }
+    console.log('$$$$$ in leaveModal $$$$');
     await this.videoPlayer.stopAllPlayers();
+    console.log('$$$$$ in leaveModal after stopAllPlayers $$$$');
 
     // Remove all the plugin listeners
     this.handlerPlay.remove();
