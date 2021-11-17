@@ -1,6 +1,6 @@
 {
   "name": "angular-videoplayer-app-starter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "scripts": {
     "update": "npm install --save capacitor-video-player@next",
     "ng": "ng",
@@ -24,7 +24,7 @@
     "@capacitor/ios": "^3.3.1",
     "@capacitor/toast": "^1.0.2",
     "@ionic/angular": "^5.5.2",
-    "capacitor-video-player": "^3.3.1-1",
+    "capacitor-video-player": "^3.3.1-2",
     "hls.js": "^1.0.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

@@ -54,6 +54,10 @@ export class HomePage implements OnInit {
   private assetSTOptions: any = {backgroundColor:'rgba(0,0,0,0)', fontSize: 18, foregroundColor:'rgba(255,0,0,1)'};
   private dcim = 'file:///sdcard/DCIM/Camera/video.mp4';
   private extSdCard = 'file:///storage/extSdCard/DCIM/Camera/jellies.mp4';
+  // eslint-disable-next-line max-len
+  private intFileIOS = 'file:///var/mobile/Containers/Data/Application/2D947973-BDBA-40A0-B20D-A995D35590C2/tmp/IMG_0011.MOV';
+  private dcimIOS = 'file:///var/mobile/Media/DCIM/100APPLE/IMG_0011.MOV';
+  //'file:///var/mobile/Containers/Data/PluginKitPlugin/FF27BEE4-C3F5-405A-926C-84FEA1D3583F/tmp/IMG_0011.MOV';
   private testApi = false;
 
   constructor(public modalCtrl: ModalController) {}
@@ -114,6 +118,10 @@ export class HomePage implements OnInit {
       this.url = this.dcim;
     } else if (vType === 'extSdCard' && this.aPlatform) {
       this.url = this.extSdCard;
+    } else if (vType === 'intFileIOS' && this.iPlatform) {
+      this.url = this.intFileIOS;
+    } else if (vType === 'dcimIOS' && this.iPlatform) {
+      this.url = this.dcimIOS;
     } else {
       console.log('Video format not supported');
     }

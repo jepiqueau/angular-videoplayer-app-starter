@@ -22,6 +22,8 @@
     <ion-button (click)="testVideoPlayerPlugin('asset')" color='primary' expand="block">Fullscreen Asset Video</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('dcim')" color='primary' expand="block">Fullscreen DCIM Video</ion-button>
     <ion-button *ngIf="aPlatform" (click)="testVideoPlayerPlugin('extSdCard')" color='primary' expand="block">Fullscreen extSdCard DCIM Video</ion-button>
+    <ion-button *ngIf="iPlatform" (click)="testVideoPlayerPlugin('intFileIOS')" color='primary' expand="block">Fullscreen intFileIOS Video</ion-button>
+    <ion-button *ngIf="iPlatform" (click)="testVideoPlayerPlugin('dcimIOS')" color='primary' expand="block">Fullscreen IOS DCIM Video</ion-button>
 
   </div>
 </ion-content>
