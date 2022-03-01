@@ -17,6 +17,7 @@
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask"
             android:exported="true"
+            android:alwaysRetainTaskState="true"
             android:resizeableActivity="true"
             android:supportsPictureInPicture="true">
 

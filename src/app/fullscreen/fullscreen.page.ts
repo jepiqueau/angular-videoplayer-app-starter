@@ -30,6 +30,7 @@ export class FullscreenPage implements OnInit {
   private mSturl: string = null;
   private mStlang: string = null;
   private mStoptions: any = null;
+  private mRate = 1.0;
   private apiTimer1: any;
   private apiTimer2: any;
   private apiTimer3: any;
@@ -49,11 +50,13 @@ export class FullscreenPage implements OnInit {
     this.mSturl = this.sturl;
     this.mStlang = this.stlang;
     this.mStoptions = this.stoptions;
+    this.mRate = 1.0;
     if (this.mUrl != null) {
       if (this.mTestApi) {this.first = true;}
       const res: any  = await this.videoPlayer.initPlayer({mode: 'fullscreen',url: this.mUrl, subtitle: this.mSturl,
                                                           language: this.mStlang, subtitleOptions: this.mStoptions,
-                                                          playerId: 'fullscreen', componentTag:'app-fullscreen'});
+                                                          playerId: 'fullscreen', rate: this.mRate, exitOnEnd: true,
+                                                          loopOnEnd: false, componentTag:'app-fullscreen'});
       console.log(`res ${JSON.stringify(res)}`);
       if(!res.result && (this.platform === 'ios' || this.platform === 'android')) {
         await Toast.show({
@@ -132,6 +135,10 @@ export class FullscreenPage implements OnInit {
         this.apiTimer1 = setTimeout(async () => {
           let pause = await this.videoPlayer.pause({playerId:'fullscreen'});
           console.log(`pause ${pause}`);
+          let retRate: any = await this.videoPlayer.getRate({playerId:'fullscreen'});
+          console.log(`rate ${retRate.value}`);
+          retRate = await this.videoPlayer.setRate({playerId:'fullscreen', rate: 0.5});
+          console.log(`new rate ${retRate.value}`);
           isPlaying = await this.videoPlayer.isPlaying({playerId:'fullscreen'});
           console.log(`const isPlaying after pause ${isPlaying}`);
           const currentTime = await this.videoPlayer.getCurrentTime({playerId:'fullscreen'});
@@ -162,7 +169,9 @@ export class FullscreenPage implements OnInit {
           let setCurrentTime = await this.videoPlayer.setCurrentTime({playerId:'fullscreen',seektime});
           console.log('setCurrentTime ', setCurrentTime.value);
           let play = await this.videoPlayer.play({playerId:'fullscreen'});
-          console.log(`play ${play}`);
+          console.log(`$$$ play ${play}`);
+          retRate = await this.videoPlayer.getRate({playerId:'fullscreen'});
+          console.log(`$$$ rate ${retRate.value}`);
           this.apiTimer2 = setTimeout(async () => {
             setMuted = await this.videoPlayer.setMuted({playerId:'fullscreen',muted:false});
             console.log('setMuted ', setMuted);
@@ -180,7 +189,9 @@ export class FullscreenPage implements OnInit {
               setCurrentTime = await this.videoPlayer.setCurrentTime({playerId:'fullscreen',seektime:(duration.value - 3)});
               console.log(`setCurrentTime ${setCurrentTime}`);
               play = await this.videoPlayer.play({playerId:'fullscreen'});
-              console.log(`play ${play}`);
+              console.log(`xxx play ${play}`);
+              retRate = await this.videoPlayer.getRate({playerId:'fullscreen'});
+              console.log(`xxx rate ${retRate.value}`);
             }, 10000);
           }, 8000);
 
