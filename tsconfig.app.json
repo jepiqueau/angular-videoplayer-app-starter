@@ -9,8 +9,6 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.d.ts",
-    "./capacitor.config.ts",
-    "./capacitor.config.js",
+    "src/**/*.d.ts"
   ]
 }
