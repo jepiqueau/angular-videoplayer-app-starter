@@ -17,6 +17,11 @@ export class HomePage implements OnInit {
   private stlang: string = null;
   private stoptions: any = null;
   private platform: string = null;
+  private rate = 1.0;
+  private exitOnEnd = true;
+  private loopOnEnd = false;
+  private pipEnabled = true;
+  private bkmodeEnabled = true;
 
   // eslint-disable-next-line max-len
   //private mp4 = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51';
@@ -31,7 +36,8 @@ export class HomePage implements OnInit {
   //private hls = 'https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8';
   private hls = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
   //private mpd = 'https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/manifestBR.mpd';
-  private mpd = 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd';
+  //private mpd = 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd';
+  private mpd ='https://arenasportslovakia.ddns.net:443/dashLive1/slager.mpd';
   private smooth ='https://test.playready.microsoft.com/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/manifest';
   private webm = 'https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm';
   private aws = 'https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e';
@@ -79,9 +85,6 @@ export class HomePage implements OnInit {
       this.iPlatform = false;
       this.aPlatform = false;
     }
-    console.log(`$$$ iPlatform: ${this.iPlatform}`);
-    console.log(`$$$ aPlatform: ${this.aPlatform}`);
-    console.log(`$$$ wPlatform: ${this.wPlatform}`);
 
   }
   setApi() {
@@ -152,10 +155,6 @@ export class HomePage implements OnInit {
       this.stlang = null;
       this.stoptions = null;
     }
-    console.log(`>>> this.url ${this.url}`);
-    console.log(`>>> this.sturl ${this.sturl}`);
-    console.log(`>>> this.stlang ${this.stlang}`);
-    console.log(`>>> this.stoptions ${JSON.stringify(this.stoptions)}`);
     const modal = await this.modalCtrl.create({
       component: FullscreenPage,
       componentProps: {
@@ -163,6 +162,11 @@ export class HomePage implements OnInit {
         sturl: this.sturl,
         stlang: this.stlang,
         stoptions: this.stoptions,
+        rate: this.rate,
+        exitOnEnd: this.exitOnEnd,
+        loopOnEnd: this.loopOnEnd,
+        pipEnabled: this.pipEnabled,
+        bkmodeEnabled: this.bkmodeEnabled,
         testApi: this.testApi,
         platform: this.platform
       },

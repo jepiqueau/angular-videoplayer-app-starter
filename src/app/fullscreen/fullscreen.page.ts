@@ -15,6 +15,11 @@ export class FullscreenPage implements OnInit {
   @Input() sturl: string;
   @Input() stlang: string;
   @Input() stoptions: any;
+  @Input() rate: number;
+  @Input() exitOnEnd: boolean;
+  @Input() loopOnEnd: boolean;
+  @Input() pipEnabled: boolean;
+  @Input() bkmodeEnabled: boolean;
   @Input() testApi: boolean;
   @Input() platform: string;
 
@@ -31,6 +36,10 @@ export class FullscreenPage implements OnInit {
   private mStlang: string = null;
   private mStoptions: any = null;
   private mRate = 1.0;
+  private mExitOnEnd = true;
+  private mLoopOnEnd = false;
+  private mPipEnabled = true;
+  private mBkmodeEnabled = true;
   private apiTimer1: any;
   private apiTimer2: any;
   private apiTimer3: any;
@@ -50,13 +59,19 @@ export class FullscreenPage implements OnInit {
     this.mSturl = this.sturl;
     this.mStlang = this.stlang;
     this.mStoptions = this.stoptions;
-    this.mRate = 1.0;
+    this.mRate = this.rate;
+    this.mExitOnEnd = this.exitOnEnd;
+    this.mLoopOnEnd = this.loopOnEnd;
+    this.mPipEnabled = this.pipEnabled;
+    this.mBkmodeEnabled = this.bkmodeEnabled;
     if (this.mUrl != null) {
       if (this.mTestApi) {this.first = true;}
       const res: any  = await this.videoPlayer.initPlayer({mode: 'fullscreen',url: this.mUrl, subtitle: this.mSturl,
                                                           language: this.mStlang, subtitleOptions: this.mStoptions,
-                                                          playerId: 'fullscreen', rate: this.mRate, exitOnEnd: true,
-                                                          loopOnEnd: false, componentTag:'app-fullscreen'});
+                                                          playerId: 'fullscreen', rate: this.mRate,
+                                                          exitOnEnd: this.mExitOnEnd, loopOnEnd: this.mLoopOnEnd,
+                                                          pipEnabled: this.mPipEnabled, bkmodeEnabled: this.mBkmodeEnabled,
+                                                          componentTag:'app-fullscreen'});
       console.log(`res ${JSON.stringify(res)}`);
       if(!res.result && (this.platform === 'ios' || this.platform === 'android')) {
         await Toast.show({

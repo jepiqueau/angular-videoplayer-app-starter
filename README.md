@@ -52,6 +52,8 @@ npx cap open android
 
 ### ELECTRON
 
+Does not work anymore due to a lack of media-src CSP 
+
 ```
 npx cap open @capacitor-community/electron
 ```
