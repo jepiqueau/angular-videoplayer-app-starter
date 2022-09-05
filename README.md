@@ -52,7 +52,19 @@ npx cap open android
 
 ### ELECTRON
 
-Does not work anymore due to a lack of media-src CSP 
+You must update the electron/src/setup.ts as followed:
+
+```
+...
+        'Content-Security-Policy': [
+          electronIsDev
+            ? `default-src ${customScheme}://* 'unsafe-inline' devtools://* 'unsafe-eval' data:;
+            media-src ${customScheme}: https://* blob: data:; connect-src ${customScheme}: https://* http://www.w3.org/2000/svg data:; worker-src blob:`
+            : `default-src ${customScheme}://* 'unsafe-inline' data:`,
+        ],
+...
+```
+
 
 ```
 npx cap open @capacitor-community/electron
