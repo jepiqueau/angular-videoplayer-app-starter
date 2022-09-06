@@ -1,14 +1,27 @@
-# Ionic/Angular Video Player Application Starter
-This is an application to demonstrate the use of the capacitor-video-player plugin in a Ionic/Angular framework.
+<p align="center"><br><img src="https://avatars3.githubusercontent.com/u/16580653?v=4" width="128" height="128" /></p>
 
- -[capacitor-video-player](https://www.npmjs.com/package/capacitor-video-player)
-
+<h3 align="center">Ionic/Angular VideoPlayer App Starter</h3>
+<p align="center"><strong><code>angular-sqlite-app-starter</code></strong></p>
+<p align="center">Ionic/Angular application demonstrating the use of the</p>
+<p align="center"><strong><code>capacitor-video-player</code></strong></p>
+<br>
+<p align="center"><strong><code>this app uses Capacitor 4</code></strong></p>
+<br>
+<p align="center">
+  <img src="https://img.shields.io/maintenance/yes/2022?style=flat-square" />
+  <a href="https://github.com/jepiqueau/angular-videoplayer-app-starter"><img src="https://img.shields.io/github/license/jepiqueau/angular-videoplayer-app-starter?style=flat-square" /></a>
+  <a href="https://github.com/jepiqueau/angular-video-app-starter"><img src="https://img.shields.io/github/package-json/v/jepiqueau/angular-videoplayer-app-starter/master?style=flat-square" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<a href="#contributors-"><img src="https://img.shields.io/badge/all%20contributors-1-orange?style=flat-square" /></a>
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+</p>
 
 ## Maintainers
 
 | Maintainer        | GitHub                                    | Social |
 | ----------------- | ----------------------------------------- | ------ |
 | Quéau Jean Pierre | [jepiqueau](https://github.com/jepiqueau) |        |
+
 
 ## Installation
 

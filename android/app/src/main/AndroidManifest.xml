@@ -14,6 +14,7 @@
             android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider">
         </meta-data>
         <activity
+            android:exported="true"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:name="com.jeep.app.ioniccapacitorvideoplayer.MainActivity"
             android:label="@string/title_activity_main"
