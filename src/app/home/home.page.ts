@@ -35,9 +35,7 @@ export class HomePage implements OnInit {
   //private hls = 'https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/playlistBR.m3u8';
   //private hls = 'https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_fmp4/master.m3u8';
   private hls = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
-  //private mpd = 'https://irtdashreference-i.akamaihd.net/dash/live/901161/keepixo1/manifestBR.mpd';
-  //private mpd = 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd';
-  private mpd ='https://arenasportslovakia.ddns.net:443/dashLive1/slager.mpd';
+  private mpd = 'https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd';
   private smooth ='https://test.playready.microsoft.com/smoothstreaming/SSWSS720H264/SuperSpeedway_720.ism/manifest';
   private webm = 'https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/Sintel_movie_4K.webm/Sintel_movie_4K.webm.720p.webm';
   private aws = 'https://universo-dev-a-m.s3.amazonaws.com/779970/fe774806dbe7ad042c24ce522b7b46594f16c66e';
@@ -61,7 +59,8 @@ export class HomePage implements OnInit {
   private dcim = 'file:///sdcard/DCIM/Camera/video.mp4';
   private extSdCard = 'file:///storage/extSdCard/DCIM/Camera/jellies.mp4';
   // eslint-disable-next-line max-len
-  private intFileIOS = 'file:///var/mobile/Containers/Data/Application/2D947973-BDBA-40A0-B20D-A995D35590C2/tmp/IMG_0011.MOV';
+  //private intFileIOS = 'file:///var/mobile/Containers/Data/Application/2D947973-BDBA-40A0-B20D-A995D35590C2/tmp/IMG_0011.MOV';
+  private intFileIOS = 'file:///var/mobile/Containers/Data/Application/2D947973-BDBA-40A0-B20D-A995D35590C2/Documents/IMG_0011.MOV';
   private dcimIOS = 'file:///var/mobile/Media/DCIM/100APPLE/IMG_0011.MOV';
   //'file:///var/mobile/Containers/Data/PluginKitPlugin/FF27BEE4-C3F5-405A-926C-84FEA1D3583F/tmp/IMG_0011.MOV';
   private testApi = false;
