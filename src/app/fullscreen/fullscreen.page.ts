@@ -20,6 +20,8 @@ export class FullscreenPage implements OnInit {
   @Input() loopOnEnd: boolean;
   @Input() pipEnabled: boolean;
   @Input() bkmodeEnabled: boolean;
+  @Input() showControls: boolean;
+  @Input() displayMode: string;
   @Input() testApi: boolean;
   @Input() platform: string;
 
@@ -40,6 +42,8 @@ export class FullscreenPage implements OnInit {
   private mLoopOnEnd = false;
   private mPipEnabled = true;
   private mBkmodeEnabled = true;
+  private mShowControls = true;
+  private mDisplayMode = 'portrait';
   private apiTimer1: any;
   private apiTimer2: any;
   private apiTimer3: any;
@@ -64,6 +68,8 @@ export class FullscreenPage implements OnInit {
     this.mLoopOnEnd = this.loopOnEnd;
     this.mPipEnabled = this.pipEnabled;
     this.mBkmodeEnabled = this.bkmodeEnabled;
+    this.mShowControls = this.showControls;
+    this.mDisplayMode = this.displayMode;
     if (this.mUrl != null) {
       if (this.mTestApi) {this.first = true;}
       const res: any  = await this.videoPlayer.initPlayer({mode: 'fullscreen',url: this.mUrl, subtitle: this.mSturl,
@@ -71,6 +77,7 @@ export class FullscreenPage implements OnInit {
                                                           playerId: 'fullscreen', rate: this.mRate,
                                                           exitOnEnd: this.mExitOnEnd, loopOnEnd: this.mLoopOnEnd,
                                                           pipEnabled: this.mPipEnabled, bkmodeEnabled: this.mBkmodeEnabled,
+                                                          showControls: this.mShowControls, displayMode: this.mDisplayMode,
                                                           componentTag:'app-fullscreen'});
       console.log(`res ${JSON.stringify(res)}`);
       if(!res.result && (this.platform === 'ios' || this.platform === 'android')) {

@@ -22,6 +22,8 @@ export class HomePage implements OnInit {
   private loopOnEnd = false;
   private pipEnabled = true;
   private bkmodeEnabled = true;
+  private displayMode = 'landscape';
+  private showControls = true;
 
   // eslint-disable-next-line max-len
   //private mp4 = 'https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4?alt=media&token=a8abafa7-5fd9-4179-be5f-1963a5b60d51';
@@ -166,6 +168,8 @@ export class HomePage implements OnInit {
         loopOnEnd: this.loopOnEnd,
         pipEnabled: this.pipEnabled,
         bkmodeEnabled: this.bkmodeEnabled,
+        showControls: this.showControls,
+        displayMode: this.displayMode,
         testApi: this.testApi,
         platform: this.platform
       },
