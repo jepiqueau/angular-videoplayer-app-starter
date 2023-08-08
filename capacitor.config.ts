@@ -4,8 +4,9 @@ const config: CapacitorConfig = {
   appId: 'com.jeep.app.ioniccapacitorvideoplayer',
   appName: 'angular-video-player-starter',
   webDir: 'www',
-  bundledWebRuntime: false,
-//  hideLogs: true,
+  server: {
+    androidScheme: 'https'
+  }
 };
 
 export default config;
