@@ -173,7 +173,7 @@ export class HomePage implements OnInit {
         testApi: this.testApi,
         platform: this.platform
       },
-      swipeToClose: true
+      // swipeToClose: true
     });
     await modal.present();
   }
